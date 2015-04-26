@@ -61,6 +61,7 @@
     }
 }
 
+
 //
 
 - (void)setCarLog:(NSArray *)d
@@ -79,6 +80,11 @@
         _carLog = [[NSMutableArray alloc] init];
     }
     [_carLog addObject:d];
+}
+
+- (NSString *)description
+{
+    return[NSString stringWithFormat:@"\r Guest Name:%@\r Ticket Number:%i\r Location:%i\r\r",_customerName, _ticketNumber, _parkingLocation];
 }
 
 @end
