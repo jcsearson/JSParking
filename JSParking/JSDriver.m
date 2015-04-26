@@ -52,18 +52,6 @@
 
 //
 
-- (NSString *)parkingStatus
-{
-    if(_parkingLocation) {
-        return @"AVAILABLE.";
-    } else {
-        return @"UNAVAILABLE.";
-    }
-}
-
-
-//
-
 - (void)setCarLog:(NSArray *)d
 {
     _carLog = [d mutableCopy];
@@ -80,6 +68,13 @@
         _carLog = [[NSMutableArray alloc] init];
     }
     [_carLog addObject:d];
+}
+
+- (void)removeEntry:(JSDriver *)r
+{
+    if(_carLog) {
+        [_carLog removeObject:r];
+    }
 }
 
 - (NSString *)description

@@ -15,6 +15,7 @@
     NSString *_customerName;
     unsigned int _ticketNumber;
     unsigned int _parkingLocation;
+    NSString *_parkingStatus;
 }
 
 //  Instance Methods
@@ -27,12 +28,12 @@
 - (unsigned int)parkingLocation;
 - (void)setParkingLocation:(unsigned int)p;
 
-//  JSDriver has a method that returns the status of car for a given ticket number
-- (NSString *)parkingStatus;
-
 - (NSMutableArray *)carLog;
 
 // JSDriver has a method for adding the car information to the car log transcript array
 - (void)addEntry:(JSDriver *)d;
+
+// JSDriver has a method for adding the car information to the car log transcript array
+- (void)removeEntry:(JSDriver *)r;
 
 @end
