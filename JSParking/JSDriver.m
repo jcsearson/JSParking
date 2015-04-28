@@ -121,7 +121,17 @@
 
 - (NSString *)description
 {
-    return[NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %i\r Location:  %i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, _ticketNumber, _parkingLocation, _carColor, _carMake, _carModel];
+    NSString *outputFile = [NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %i\r Location:  %i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, _ticketNumber, _parkingLocation, _carColor, _carMake, _carModel];
+    NSString *path = @"/Users/jboned/Documents/www/overnightlog.txt";     // path to your .txt file
+    // Open output file in append mode:
+    NSOutputStream *stream = [[NSOutputStream alloc] initToFileAtPath:path append:YES];
+    [stream open];
+    // Make NSData object from string:
+    NSData *data = [outputFile dataUsingEncoding:NSUTF8StringEncoding];
+    // Write data to output file:
+    [stream write:data.bytes maxLength:data.length];
+    [stream close];
+    return outputFile;
 }
 
 @end
