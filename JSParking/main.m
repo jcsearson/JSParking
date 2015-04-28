@@ -19,16 +19,25 @@ int main(int argc, const char * argv[]) {
             
             
             // Declare instance variables for use with "scanf" function
-            NSString *inputName;
+            NSString *inputFirstName;
+            NSString *inputLastName;
             unsigned int inputTicket;
             unsigned int inputLocation;
+            NSString *inputCarColor;
+            NSString *inputCarMake;
+            NSString *inputCarModel;
             char cString[100]; //cString is string of 100 chars (technically an array)
             
             // Prompt User Name
-            NSLog(@"Enter driver's name:");
+            NSLog(@"Enter driver's first name:");
             scanf("%s", cString);
             //  Convert to string
-            inputName = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
+            inputFirstName = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
+            
+            NSLog(@"Enter driver's last name:");
+            scanf("%s", cString);
+            //  Convert to string
+            inputLastName = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
             
             // Prompt Ticket Number
             NSLog(@"Enter associated ticket number:");
@@ -42,10 +51,28 @@ int main(int argc, const char * argv[]) {
             //  Convert to unsigned integer
             inputLocation = atoi(cString);
             
+            //  Prompt vehicle description
+            NSLog(@"Enter the color of the vehicle:");
+            scanf("%s", cString);
+            //  Convert to string
+            inputCarColor = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
+            NSLog(@"Enter the make of the vehicle:");
+            scanf("%s", cString);
+            //  Convert to string
+            inputCarMake = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
+            NSLog(@"Enter the model of the vehicle:");
+            scanf("%s", cString);
+            //  Convert to string
+            inputCarModel = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
+            
             // Use JSDriver methods to assign inputs to object
-            [firstCar setCustomerName:inputName];
+            [firstCar setCustomerFirstName:inputFirstName];
+            [firstCar setCustomerLastName:inputLastName];
             [firstCar setTicketNumber:inputTicket];
             [firstCar setParkingLocation:inputLocation];
+            [firstCar setCarColor:inputCarColor];
+            [firstCar setCarMake:inputCarMake];
+            [firstCar setCarModel:inputCarModel];
             
             [carLog addObject:firstCar];
         }

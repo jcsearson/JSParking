@@ -12,21 +12,35 @@
 
 {
     //  Instance Variables
-    NSString *_customerName;
+    NSString *_customerFirstName;
+    NSString *_customerLastName;
     unsigned int _ticketNumber;
     unsigned int _parkingLocation;
-    NSString *_parkingStatus;
+    NSString *_carColor;
+    NSString *_carMake;
+    NSString *_carModel;
 }
 
 //  Instance Methods
-- (NSString *)customerName;
-- (void)setCustomerName:(NSString *)c;
+- (NSString *)customerFirstName;
+- (void)setCustomerFirstName:(NSString *)c;
+- (NSString *)customerLastName;
+- (void)setCustomerLastName:(NSString *)b;
 
 - (unsigned int)ticketNumber;
 - (void)setTicketNumber:(unsigned int)t;
 
 - (unsigned int)parkingLocation;
 - (void)setParkingLocation:(unsigned int)p;
+
+- (NSString *)carColor;
+- (void)setCarColor:(NSString *)z;
+
+- (NSString *)carMake;
+- (void)setCarMake:(NSString *)y;
+
+- (NSString *)carModel;
+- (void)setCarModel:(NSString *)x;
 
 - (NSMutableArray *)carLog;
 

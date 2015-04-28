@@ -16,14 +16,24 @@
 
 @implementation JSDriver
 
-- (NSString *)customerName
+- (NSString *)customerFirstName
 {
-    return _customerName;
+    return _customerFirstName;
 }
 
-- (void)setCustomerName:(NSString *)c
+- (void)setCustomerFirstName:(NSString *)c
 {
-    _customerName = c;
+    _customerFirstName = c;
+}
+
+- (NSString *)customerLastName
+{
+    return _customerLastName;
+}
+
+- (void)setCustomerLastName:(NSString *)b
+{
+    _customerLastName = b;
 }
 
 //
@@ -48,6 +58,38 @@
 - (void)setParkingLocation:(unsigned int)p
 {
     _parkingLocation = p;
+}
+
+//
+
+- (NSString *)_carColor
+{
+    return _carColor;
+}
+
+- (void)setCarColor:(NSString *)z
+{
+    _carColor = z;
+}
+
+- (NSString *)_carMake
+{
+    return _carMake;
+}
+
+- (void)setCarMake:(NSString *)y
+{
+    _carMake = y;
+}
+
+- (NSString *)_carModel
+{
+    return _carModel;
+}
+
+- (void)setCarModel:(NSString *)x
+{
+    _carModel = x;
 }
 
 //
@@ -79,7 +121,7 @@
 
 - (NSString *)description
 {
-    return[NSString stringWithFormat:@"\r Guest Name:%@\r Ticket Number:%i\r Location:%i\r\r",_customerName, _ticketNumber, _parkingLocation];
+    return[NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %i\r Location:  %i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, _ticketNumber, _parkingLocation, _carColor, _carMake, _carModel];
 }
 
 @end
