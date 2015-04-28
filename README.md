@@ -11,4 +11,4 @@ A valet app that keeps daily records of valet cars (in & out) at any particular 
 
 ### Sample Output
 
-[Vehicle App Screenshot - Output](http://i.imgur.com/UeXSsEW.png?1)
+![Brogrammer Screenshot](http://i.imgur.com/UeXSsEW.png?1)
