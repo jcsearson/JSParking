@@ -9,6 +9,10 @@ A valet app that keeps daily records of valet cars (in & out) at any particular 
 	3.  Remove and add Car-objects as they come and go.
 	4.  Write out the records from the previous day and reset the NSMutableArray.
 
+### Sample Input
+
+![Brogrammer Screenshot](http://i.imgur.com/knuEnKE.png?1)
+
 ### Sample Output
 
 ![Brogrammer Screenshot](http://i.imgur.com/UeXSsEW.png?1)
