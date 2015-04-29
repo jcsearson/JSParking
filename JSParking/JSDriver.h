@@ -17,7 +17,7 @@
     //  Instance Variables
     NSString *_customerFirstName;
     NSString *_customerLastName;
-    unsigned int _ticketNumber;
+    NSInteger _newTicket;
     unsigned int _parkingLocation;
     NSString *_carColor;
     NSString *_carMake;
@@ -30,8 +30,8 @@
 - (NSString *)customerLastName;
 - (void)setCustomerLastName:(NSString *)b;
 
-- (unsigned int)ticketNumber;
-- (void)setTicketNumber:(unsigned int)t;
+- (NSInteger)newTicket;
+- (void)setNewTicket:(NSInteger)t;
 
 - (unsigned int)parkingLocation;
 - (void)setParkingLocation:(unsigned int)p;
