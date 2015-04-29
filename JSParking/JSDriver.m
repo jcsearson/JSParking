@@ -110,6 +110,18 @@
 
 //
 
+- (NSString *)timeString
+{
+    return _timeString;
+}
+
+- (void)setTimeString:(NSString *)q
+{
+    _timeString = q;
+}
+
+//
+
 - (void)setCarLog:(NSArray *)d
 {
     _carLog = [d mutableCopy];
@@ -142,7 +154,7 @@
 - (NSString *)description
 {    
     // Output format to be written
-    NSString *outputFile = [NSString stringWithFormat:@"\r Date:  %@\r Guest Name:  %@ %@\r Ticket Number:  %ld\r Location:  #%i\r Vehicle:  %@ %@ %@\r\r",_dateString, _customerFirstName, _customerLastName, (long)_newTicket, _parkingLocation, _carColor, _carMake, _carModel];
+    NSString *outputFile = [NSString stringWithFormat:@"\r Time In:  %@  ( %@ ) \r Guest Name:  %@ %@\r Ticket Number:  %ld\r Location:  #%i\r Vehicle:  %@ %@ %@\r\r",_timeString, _dateString, _customerFirstName, _customerLastName, (long)_newTicket, _parkingLocation, _carColor, _carMake, _carModel];
     
     NSString *path = @"/Users/jboned/Documents/www/overnightlog.txt";     // path to .txt file
     
