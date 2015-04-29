@@ -121,8 +121,9 @@
 
 - (NSString *)description
 {
+    // Output format to be written
     NSString *outputFile = [NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %i\r Location:  %i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, _ticketNumber, _parkingLocation, _carColor, _carMake, _carModel];
-    NSString *path = @"/Users/jboned/Documents/www/overnightlog.txt";     // path to your .txt file
+    NSString *path = @"/Users/jboned/Documents/www/overnightlog.txt";     // path to .txt file
     // Open output file in append mode:
     NSOutputStream *stream = [[NSOutputStream alloc] initToFileAtPath:path append:YES];
     [stream open];
@@ -131,7 +132,10 @@
     // Write data to output file:
     [stream write:data.bytes maxLength:data.length];
     [stream close];
-    return outputFile;
+    
+    // Output confirmation to application interface:
+    NSString *inputConfirmation = [NSString stringWithFormat:@"\r %@ %@ has been successfully added!",_customerFirstName, _customerLastName];
+    return inputConfirmation;
 }
 
 @end
