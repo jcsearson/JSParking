@@ -17,7 +17,12 @@ int main(int argc, const char * argv[]) {
             // Creates an instance of JSDriver
             JSDriver *firstCar = [[JSDriver alloc] init];
             
+            //  Specifying a date object to be sent to 'JSDriver.m'
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+            NSDate *currentDate = [NSDate date];
             
+            //  Sets starting ticket number and then increments such that next time program executes we have the next #
             NSNumber *number = [NSNumber numberWithInt:31353];
             unsigned int value = [number intValue];
             number = [NSNumber numberWithInt:value + 1];
@@ -31,7 +36,7 @@ int main(int argc, const char * argv[]) {
             NSString *inputCarModel;
             unsigned int inputLocation;
             
-            
+            // Creating an automated ticket system to assign a sequential ticket number per entry
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSInteger nextTicket = [defaults integerForKey:@"lastTicketNumber"];
             nextTicket++;
@@ -73,8 +78,11 @@ int main(int argc, const char * argv[]) {
             //  Convert to string
             inputCarModel = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
             
+            //  Convert to a string such that we can use 'setDateString (NSString *)
+            NSString *theDate = [dateFormatter stringFromDate:currentDate];
             
             // Use JSDriver methods to assign inputs to object
+            [firstCar setDateString:theDate];
             [firstCar setCustomerFirstName:inputFirstName];
             [firstCar setCustomerLastName:inputLastName];
             [firstCar setNewTicket:nextTicket];
