@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 James C. Searson. All rights reserved.
 //
 
+// Disable date & process id from output.
+#define NSLog(STRING, ...) printf("%s\n", [[NSString stringWithFormat:STRING, ##__VA_ARGS__] UTF8String]);
+
 #import <Foundation/Foundation.h>
 
 @interface JSDriver : NSObject
