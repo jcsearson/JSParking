@@ -13,7 +13,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSMutableArray *carLog = [[NSMutableArray alloc] init];
         int i;
-        for(i=0; i<2; i++) {
+        for(i=0; i<1; i++) {
             // Creates an instance of JSDriver
             JSDriver *firstCar = [[JSDriver alloc] init];
             
