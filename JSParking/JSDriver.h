@@ -22,6 +22,8 @@
     NSString *_carColor;
     NSString *_carMake;
     NSString *_carModel;
+    NSString *_dateString;
+
 }
 
 //  Instance Methods
@@ -46,6 +48,9 @@
 - (void)setCarModel:(NSString *)x;
 
 - (NSMutableArray *)carLog;
+
+- (NSString *)dateString;
+- (void)setDateString:(NSString *)d;
 
 // JSDriver has a method for adding the car information to the car log transcript array
 - (void)addEntry:(JSDriver *)d;
