@@ -38,14 +38,14 @@
 
 //
 
-- (unsigned int)ticketNumber
+- (NSInteger)newTicket
 {
-    return _ticketNumber;
+    return _newTicket;
 }
 
-- (void)setTicketNumber:(unsigned int)t
+- (void)setNewTicket:(NSInteger)t
 {
-    _ticketNumber = t;
+    _newTicket = t;
 }
 
 //
@@ -62,7 +62,7 @@
 
 //
 
-- (NSString *)_carColor
+- (NSString *)carColor
 {
     return _carColor;
 }
@@ -72,7 +72,9 @@
     _carColor = z;
 }
 
-- (NSString *)_carMake
+//
+
+- (NSString *)carMake
 {
     return _carMake;
 }
@@ -82,7 +84,9 @@
     _carMake = y;
 }
 
-- (NSString *)_carModel
+//
+
+- (NSString *)carModel
 {
     return _carModel;
 }
@@ -104,6 +108,8 @@
     return[_carLog copy];
 }
 
+//
+
 - (void)addEntry:(JSDriver *)d
 {
     if(!_carLog) {
@@ -119,16 +125,22 @@
     }
 }
 
+
+
 - (NSString *)description
-{
+{    
     // Output format to be written
-    NSString *outputFile = [NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %i\r Location:  #%i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, _ticketNumber, _parkingLocation, _carColor, _carMake, _carModel];
+    NSString *outputFile = [NSString stringWithFormat:@"\r Guest Name:  %@ %@\r Ticket Number:  %ld\r Location:  #%i\r Vehicle:  %@ %@ %@\r\r",_customerFirstName, _customerLastName, (long)_newTicket, _parkingLocation, _carColor, _carMake, _carModel];
+    
     NSString *path = @"/Users/jboned/Documents/www/overnightlog.txt";     // path to .txt file
+    
     // Open output file in append mode:
     NSOutputStream *stream = [[NSOutputStream alloc] initToFileAtPath:path append:YES];
     [stream open];
+    
     // Make NSData object from string:
     NSData *data = [outputFile dataUsingEncoding:NSUTF8StringEncoding];
+    
     // Write data to output file:
     [stream write:data.bytes maxLength:data.length];
     [stream close];
