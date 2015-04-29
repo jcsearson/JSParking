@@ -18,14 +18,28 @@ int main(int argc, const char * argv[]) {
             JSDriver *firstCar = [[JSDriver alloc] init];
             
             
+            NSNumber *number = [NSNumber numberWithInt:31353];
+            unsigned int value = [number intValue];
+            number = [NSNumber numberWithInt:value + 1];
+            
+            
             // Declare instance variables for use with "scanf" function
             NSString *inputFirstName;
             NSString *inputLastName;
-            unsigned int inputTicket;
-            unsigned int inputLocation;
             NSString *inputCarColor;
             NSString *inputCarMake;
             NSString *inputCarModel;
+            unsigned int inputLocation;
+            
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSInteger nextTicket = [defaults integerForKey:@"lastTicketNumber"];
+            nextTicket++;
+            // use it
+            [defaults setInteger:nextTicket forKey:@"lastTicketNumber"];
+            [defaults synchronize];
+            
+            
             char cString[100]; //cString is string of 100 chars (technically an array)
             
             // Prompt User Name
@@ -38,12 +52,6 @@ int main(int argc, const char * argv[]) {
             scanf("%s", cString);
             //  Convert to string
             inputLastName = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
-            
-            // Prompt Ticket Number
-            NSLog(@"Enter associated ticket number:");
-            scanf("%s", cString);
-            //  Convert to unsigned integer
-            inputTicket = atoi(cString);
             
             // Prompt Location Number
             NSLog(@"Enter where vehicle was parked:");
@@ -65,14 +73,16 @@ int main(int argc, const char * argv[]) {
             //  Convert to string
             inputCarModel = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
             
+            
             // Use JSDriver methods to assign inputs to object
             [firstCar setCustomerFirstName:inputFirstName];
             [firstCar setCustomerLastName:inputLastName];
-            [firstCar setTicketNumber:inputTicket];
+            [firstCar setNewTicket:nextTicket];
             [firstCar setParkingLocation:inputLocation];
             [firstCar setCarColor:inputCarColor];
             [firstCar setCarMake:inputCarMake];
             [firstCar setCarModel:inputCarModel];
+            
             
             [carLog addObject:firstCar];
         }
