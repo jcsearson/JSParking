@@ -12,6 +12,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSMutableArray *carLog = [[NSMutableArray alloc] init];
+        
         int i;
         for(i=0; i<1; i++) {
             // Creates an instance of JSDriver
@@ -19,14 +20,20 @@ int main(int argc, const char * argv[]) {
             
             //  Specifying a date object to be sent to 'JSDriver.m'
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setLocale:[NSLocale currentLocale]];
             dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+            dateFormatter.timeStyle = NSDateFormatterNoStyle;
+            
+            //  Specifying a timestamped object to be sent to 'JSDriver.m'
+            NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+            [timeFormatter setDateFormat:@"K:mm a"]; // e.g.  "3:45 PM"
+            
             NSDate *currentDate = [NSDate date];
             
             //  Sets starting ticket number and then increments such that next time program executes we have the next #
             NSNumber *number = [NSNumber numberWithInt:31353];
             unsigned int value = [number intValue];
             number = [NSNumber numberWithInt:value + 1];
-            
             
             // Declare instance variables for use with "scanf" function
             NSString *inputFirstName;
@@ -79,10 +86,12 @@ int main(int argc, const char * argv[]) {
             inputCarModel = [NSString stringWithCString: cString encoding: NSASCIIStringEncoding];
             
             //  Convert to a string such that we can use 'setDateString (NSString *)
-            NSString *theDate = [dateFormatter stringFromDate:currentDate];
+            NSString *theDate = [dateFormatter stringFromDate:currentDate];  // date
+            NSString *theTime = [timeFormatter stringFromDate:currentDate];  // time
             
             // Use JSDriver methods to assign inputs to object
             [firstCar setDateString:theDate];
+            [firstCar setTimeString:theTime];
             [firstCar setCustomerFirstName:inputFirstName];
             [firstCar setCustomerLastName:inputLastName];
             [firstCar setNewTicket:nextTicket];

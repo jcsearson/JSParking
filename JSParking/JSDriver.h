@@ -23,7 +23,7 @@
     NSString *_carMake;
     NSString *_carModel;
     NSString *_dateString;
-
+    NSString *_timeString;
 }
 
 //  Instance Methods
@@ -51,6 +51,9 @@
 
 - (NSString *)dateString;
 - (void)setDateString:(NSString *)d;
+
+- (NSString *)timeString;
+- (void)setTimeString:(NSString *)q;
 
 // JSDriver has a method for adding the car information to the car log transcript array
 - (void)addEntry:(JSDriver *)d;
